@@ -126,6 +126,9 @@
                                 var elements_left = elements.length;
                                 settings.load.call(self, elements_left, settings);
                             }
+                        }).bind("error", function() {
+                            var fallback = $self.attr("data-fallback");
+                            $self.attr("src", fallback);
                         })
                         .attr("src", $self.attr("data-" + settings.data_attribute));
                 }
@@ -166,7 +169,6 @@
 
         return this;
     };
-
     /* Convenience methods in jQuery namespace.           */
     /* Use as  $.belowthefold(element, {threshold : 100, container : window}) */
 
