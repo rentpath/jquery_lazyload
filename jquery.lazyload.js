@@ -127,7 +127,7 @@
                                 settings.load.call(self, elements_left, settings);
                             }
                         }).bind("error", function() {
-                            var fallback = $self.attr("data-fallback");
+                            var fallback = $self.attr("data-fallback") || settings.placeholder;
                             $self.attr("src", fallback);
                         })
                         .attr("src", $self.attr("data-" + settings.data_attribute));
